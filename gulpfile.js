@@ -89,8 +89,15 @@ gulp.task("scripts", function () {
 	console.log("Scripts task: uglifying .js file");
 
 	return gulp.src(SCRIPTS_PATH)
+		.pipe(plumber(function(err){
+			console.log("Scripts Tasks error: ");
+			console.log(err);
+			this.emit('end'); /*I think it will just skip rest of function*/
+		}))
+		.pipe(sourcemaps.init())
 		.pipe(uglify()) 
 		.pipe(concat("scripts.js"))
+		.pipe(sourcemaps.write())
 		.pipe(gulp.dest(DIST_PATH))
 		.pipe(livereload());
 
