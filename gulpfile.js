@@ -139,11 +139,11 @@ gulp.task("templates", function(){
 
 // Default -> 'gulp' or 'gulp default'
 
-gulp.task('default', function(){
+gulp.task('default', ['images','templates','styles','scripts' ], function(){
 	console.log("This is default task.");
 });
 
-gulp.task("watch", function(){
+gulp.task("watch", ['default'], function(){
 	console.log("watch started");
 	require("./server.js"); /*kjører koden*/
 	livereload.listen();
