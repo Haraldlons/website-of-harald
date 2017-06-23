@@ -8,6 +8,7 @@ var plumber = require("gulp-plumber"); /*Handles errors*/
 var sourcemaps = require("gulp-sourcemaps"); /*Easy debugging in chrome inspect*/
 var sass = require("gulp-sass"); 
 var babel = require("gulp-babel"); /*Get newer versions to work. */
+var del = require("del");
 
 // Less plugins
 var less = require("gulp-less");
@@ -150,9 +151,16 @@ gulp.task("templates", function(){
 		.pipe(livereload());
 });
 
-// Default -> 'gulp' or 'gulp default'
+// Sletter hele dist folder slik at hver gang vi starter default så starter 
+// vi med en "ren" folder og ikke noe vi har igjen fra tidligere.
+gulp.task("clean", function(){
+	return del.sync([
+			DIST_PATH
+		]);
+});
 
-gulp.task('default', ['images','templates','styles','scripts' ], function(){
+// Default -> 'gulp' or 'gulp default'
+gulp.task('default', ['clean','images','templates','styles','scripts' ], function(){
 	console.log("This is default task.");
 });
 
