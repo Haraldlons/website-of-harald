@@ -11,6 +11,7 @@ var LessAutoprefix = require("less-plugin-autoprefix")
 var lessAutoprefix = new LessAutoprefix({
 	browsers: ['last 2 versions']
 });
+var babel = require("gulp-babel"); /*Get newer versions to work. */
 
 // Less plugins
 var less = require("gulp-less");
@@ -95,6 +96,9 @@ gulp.task("scripts", function () {
 			this.emit('end'); /*I think it will just skip rest of function*/
 		}))
 		.pipe(sourcemaps.init())
+		.pipe(babel({
+			presets: ['es2015']
+		}))
 		.pipe(uglify()) 
 		.pipe(concat("scripts.js"))
 		.pipe(sourcemaps.write())
