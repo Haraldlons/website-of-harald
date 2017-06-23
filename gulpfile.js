@@ -1,3 +1,5 @@
+
+
 var gulp = require('gulp'); /*Par: til modulen du ønsker*/
 var uglify = require("gulp-uglify");
 var livereload = require("gulp-livereload");
@@ -7,21 +9,29 @@ var autoprefixer = require("gulp-autoprefixer"); /*Specify which browse. Vendor*
 var plumber = require("gulp-plumber"); /*Handles errors*/
 var sourcemaps = require("gulp-sourcemaps"); /*Easy debugging in chrome inspect*/
 var sass = require("gulp-sass"); 
-var LessAutoprefix = require("less-plugin-autoprefix")
-var lessAutoprefix = new LessAutoprefix({
-	browsers: ['last 2 versions']
-});
 var babel = require("gulp-babel"); /*Get newer versions to work. */
 
 // Less plugins
 var less = require("gulp-less");
+var LessAutoprefix = require("less-plugin-autoprefix")
+var lessAutoprefix = new LessAutoprefix({
+	browsers: ['last 2 versions']
+});
+
+// Handlebars plugins
+var handlebars = require("gulp-handlebars");
+var handlebarsLib = require("handlebars");
+var declare = require("gulp-declare");
+var wrap = require("gulp-wrap"); /*Wrap our files in a set of codes*/
+
+
 
 
 // File Paths
 var DIST_PATH = "public/dist"
 var SCRIPTS_PATH = "public/scripts/**/*.js";
 var CSS_PATH = "public/css/**/*.css";
-
+var TEMPLATES_PATH = "templates/**/*.hbs";
 
 // // Styles
 // gulp.task('styles', function(){
@@ -112,6 +122,21 @@ gulp.task("images", function(){
 	console.log("starting images task");
 });
 
+gulp.task("templates", function(){
+	return gulp.src(TEMPLATES_PATH)
+		.pipe(handlebars({
+			handlebars: handlebarsLib
+		})) /*Compile them as handlebars templates*/
+		.pipe(wrap("Handlebars.template(<%= contents %>)")) /*Wraps the current content inside a string*/
+		.pipe(declare({
+			namespace: "templates",
+			noRedeclare: true /*Im templates allerede finnes vil den ikke bli redefinert*/
+		})) /*Deklarere en template variabel vi kan bruke inside javascript*/
+		.pipe(concat("templates.js")) /*Navnet på filen som kommer i dist. Må huske å inkludere den i index.html*/
+		.pipe(gulp.dest(DIST_PATH))
+		.pipe(livereload());
+});
+
 // Default -> 'gulp' or 'gulp default'
 
 gulp.task('default', function(){
@@ -126,5 +151,6 @@ gulp.task("watch", function(){
 	// gulp.watch(CSS_PATH, ['styles']);
 	// gulp.watch("public/scss/**/*.scss", ["styles"]); /*For SCSS*/
 	gulp.watch("public/less/**/*.less", ["styles"]); /*For LESS*/
+	gulp.watch(TEMPLATES_PATH, ["templates"]);
 
 });
