@@ -1,22 +1,33 @@
 var gulp = require('gulp'); /*Par: til modulen du ønsker*/
 var uglify = require("gulp-uglify");
 var livereload = require("gulp-livereload");
+var concat = require("gulp-concat");
+
 // File Paths
-var SCRIPTS_PATH = "public/scripts/**/*.js"
+var DIST_PATH = "public/dist"
+var SCRIPTS_PATH = "public/scripts/**/*.js";
+var CSS_PATH = "public/css/**/*.css";
+
 
 // Styles
 gulp.task('styles', function(){
 	console.log("starting styles task");
+
+	// Først reset.css SÅ CSS_path -> viktig rekkefølge
+	return gulp.src(['public/css/reset.css', CSS_PATH])
+		.pipe(concat('styles.css'))
+		.pipe(gulp.dest(DIST_PATH))
+		.pipe(livereload());
 });
 
 // Scripts
 
 gulp.task("scripts", function () {
-	console.log("starting scripts task");
+	console.log("Scripts task: uglifying .js file");
 
 	return gulp.src(SCRIPTS_PATH)
 		.pipe(uglify()) 
-		.pipe(gulp.dest("public/dist"))
+		.pipe(gulp.dest(DIST_PATH))
 		.pipe(livereload());
 
 });
