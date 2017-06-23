@@ -1,6 +1,6 @@
-var gulp = require('gulp'); /*En parameter, navnet til modulen du ønsker*/
+var gulp = require('gulp'); /*Par: til modulen du ønsker*/
 var uglify = require("gulp-uglify");
-
+var livereload = require("gulp-livereload");
 // File Paths
 var SCRIPTS_PATH = "public/scripts/**/*.js"
 
@@ -16,7 +16,9 @@ gulp.task("scripts", function () {
 
 	return gulp.src(SCRIPTS_PATH)
 		.pipe(uglify()) 
-		.pipe(gulp.dest("public/dist")); /*Saves it in the dist*/
+		.pipe(gulp.dest("public/dist"))
+		.pipe(livereload());
+
 });
 
 // Images
@@ -34,6 +36,7 @@ gulp.task('default', function(){
 gulp.task("watch", function(){
 	console.log("watch started");
 	require("./server.js"); /*kjører koden*/
+	livereload.listen();
 	gulp.watch(SCRIPTS_PATH, ['scripts']); /*liste over tasks som skal kjøres om det skjer noen endringer*/
 
 });
