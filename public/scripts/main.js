@@ -1,3 +1,3 @@
-var name = "Harald @3";
+var name = "Harald testing";
 
 document.write("Hello " + name + "!");

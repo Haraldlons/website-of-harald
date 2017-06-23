@@ -90,6 +90,7 @@ gulp.task("scripts", function () {
 
 	return gulp.src(SCRIPTS_PATH)
 		.pipe(uglify()) 
+		.pipe(concat("scripts.js"))
 		.pipe(gulp.dest(DIST_PATH))
 		.pipe(livereload());
 
