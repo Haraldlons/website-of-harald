@@ -7,6 +7,14 @@ var autoprefixer = require("gulp-autoprefixer"); /*Specify which browse. Vendor*
 var plumber = require("gulp-plumber"); /*Handles errors*/
 var sourcemaps = require("gulp-sourcemaps"); /*Easy debugging in chrome inspect*/
 var sass = require("gulp-sass"); 
+var LessAutoprefix = require("less-plugin-autoprefix")
+var lessAutoprefix = new LessAutoprefix({
+	browsers: ['last 2 versions']
+});
+
+// Less plugins
+var less = require("gulp-less");
+
 
 // File Paths
 var DIST_PATH = "public/dist"
@@ -34,22 +42,43 @@ var CSS_PATH = "public/css/**/*.css";
 // 		.pipe(livereload());
 // });
 
-// Styles for SCSS
+// // Styles for SCSS
+// gulp.task('styles', function(){
+// 	console.log("starting styles task");
+
+// 	// Først reset.css SÅ CSS_path -> viktig rekkefølge
+// 	return gulp.src("public/scss/styles.scss")
+// 		.pipe(plumber(function(err){
+// 			console.log("Styles Task Error: ");
+// 			console.log(err);
+// 			this.emit("end");
+// 		}))
+// 		.pipe(sourcemaps.init()) /*Know css-files before minify*/
+// 		.pipe(autoprefixer())
+// 		.pipe(sass({
+// 			outputStyle: 'compressed'
+// 		}))
+// 		.pipe(sourcemaps.write())
+// 		.pipe(gulp.dest(DIST_PATH))
+// 		.pipe(livereload());
+// });
+
+// Styles for LESS
 gulp.task('styles', function(){
 	console.log("starting styles task");
 
 	// Først reset.css SÅ CSS_path -> viktig rekkefølge
-	return gulp.src("public/scss/styles.scss")
+	return gulp.src("public/less/styles.less")
 		.pipe(plumber(function(err){
 			console.log("Styles Task Error: ");
 			console.log(err);
 			this.emit("end");
 		}))
 		.pipe(sourcemaps.init()) /*Know css-files before minify*/
-		.pipe(autoprefixer())
-		.pipe(sass({
-			outputStyle: 'compressed'
+		.pipe(less({
+			plugins: [lessAutoprefix]
 		}))
+		.pipe(minifyCss())
 		.pipe(sourcemaps.write())
 		.pipe(gulp.dest(DIST_PATH))
 		.pipe(livereload());
@@ -83,5 +112,7 @@ gulp.task("watch", function(){
 	livereload.listen();
 	gulp.watch(SCRIPTS_PATH, ['scripts']); /*liste over tasks som skal kjøres om det skjer noen endringer*/
 	// gulp.watch(CSS_PATH, ['styles']);
-	gulp.watch("public/scss/**/*.scss", ["styles"]);
+	// gulp.watch("public/scss/**/*.scss", ["styles"]); /*For SCSS*/
+	gulp.watch("public/less/**/*.less", ["styles"]); /*For LESS*/
+
 });
