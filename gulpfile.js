@@ -2,6 +2,7 @@ var gulp = require('gulp'); /*Par: til modulen du ønsker*/
 var uglify = require("gulp-uglify");
 var livereload = require("gulp-livereload");
 var concat = require("gulp-concat");
+var minifyCss = require("gulp-minify-css");
 
 // File Paths
 var DIST_PATH = "public/dist"
@@ -16,12 +17,12 @@ gulp.task('styles', function(){
 	// Først reset.css SÅ CSS_path -> viktig rekkefølge
 	return gulp.src(['public/css/reset.css', CSS_PATH])
 		.pipe(concat('styles.css'))
+		.pipe(minifyCss())
 		.pipe(gulp.dest(DIST_PATH))
 		.pipe(livereload());
 });
 
 // Scripts
-
 gulp.task("scripts", function () {
 	console.log("Scripts task: uglifying .js file");
 
@@ -33,7 +34,6 @@ gulp.task("scripts", function () {
 });
 
 // Images
-
 gulp.task("images", function(){
 	console.log("starting images task");
 });
@@ -49,5 +49,7 @@ gulp.task("watch", function(){
 	require("./server.js"); /*kjører koden*/
 	livereload.listen();
 	gulp.watch(SCRIPTS_PATH, ['scripts']); /*liste over tasks som skal kjøres om det skjer noen endringer*/
+	gulp.watch(CSS_PATH, ['styles']);
+
 
 });
