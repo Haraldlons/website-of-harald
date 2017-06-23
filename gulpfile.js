@@ -1,5 +1,3 @@
-
-
 var gulp = require('gulp'); /*Par: til modulen du ønsker*/
 var uglify = require("gulp-uglify");
 var livereload = require("gulp-livereload");
@@ -24,7 +22,10 @@ var handlebarsLib = require("handlebars");
 var declare = require("gulp-declare");
 var wrap = require("gulp-wrap"); /*Wrap our files in a set of codes*/
 
-
+// Image compression
+var imagemin = require("gulp-imagemin");
+var imageminPngquant = require("imagemin-pngquant");
+var imageminJpegRecompress = require("imagemin-jpeg-recompress")
 
 
 // File Paths
@@ -32,6 +33,7 @@ var DIST_PATH = "public/dist"
 var SCRIPTS_PATH = "public/scripts/**/*.js";
 var CSS_PATH = "public/css/**/*.css";
 var TEMPLATES_PATH = "templates/**/*.hbs";
+var IMAGES_PATH = "public/images/**/*.{png,jpeg,jpg,svg,gif}";
 
 // // Styles
 // gulp.task('styles', function(){
@@ -114,12 +116,23 @@ gulp.task("scripts", function () {
 		.pipe(sourcemaps.write())
 		.pipe(gulp.dest(DIST_PATH))
 		.pipe(livereload());
-
 });
 
 // Images
 gulp.task("images", function(){
-	console.log("starting images task");
+	// Komprimering av bilder. Rundt 70%. Legges i dist/images mappe.
+	return gulp.src(IMAGES_PATH)
+		.pipe(imagemin(
+				[
+					imagemin.gifsicle(),
+					imagemin.jpegtran(),
+					imagemin.optipng(),
+					imagemin.svgo(),
+					imageminPngquant(),
+					imageminJpegRecompress()
+				]
+			))
+		.pipe(gulp.dest(DIST_PATH + "/images"))
 });
 
 gulp.task("templates", function(){

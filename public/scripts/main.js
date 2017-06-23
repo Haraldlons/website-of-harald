@@ -11,7 +11,7 @@ class Person{
 	}
 }
 
-var person = new Person("Harald g")
+var person = new Person("Harald Igjen")
 var greetHTML = templates['greeting']({
 	message: person.hello()
 })
