@@ -1,4 +1,5 @@
 var gulp = require('gulp'); /*En parameter, navnet til modulen du ønsker*/
+var uglify = require("gulp-uglify");
 
 // Styles
 gulp.task('styles', function(){
@@ -9,7 +10,13 @@ gulp.task('styles', function(){
 
 gulp.task("scripts", function () {
 	console.log("starting scripts task");
+
+	return gulp.src("public/scripts/*.js")
+		.pipe(uglify())
+		.pipe(gulp.dest("public/dist")); /*Saves it in the dist*/
 });
+
+
 
 // Images
 
