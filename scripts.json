@@ -1,0 +1,13 @@
+[
+    "./development/**/*.js",
+    "./development/scripts/controllers/homeCtrl.js",
+    "./development/scripts/controllers/contactCtrl.js",
+    "./development/scripts/controllers/aboutCtrl.js",
+    "./development/scripts/components/navbar/navbar.js",
+    "./development/scripts/components/navbar/navbarCtrl.js",
+    "./development/scripts/controllers/projectsCtrl.js",
+    "./development/scripts/controllers/blogsCtrl.js",
+    "./development/scripts/controllers/schoolworkCtrl.js",
+    "./development/scripts/controllers/cvCtrl.js"
+]
+
