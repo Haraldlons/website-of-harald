@@ -43,6 +43,7 @@
     "angular-route": "^1.6.4",
     "angular-sanitize": "^1.6.4",
     "angular-touch": "^1.6.4",
+    "angular-ui-router": "^0.4.3",
     "static-server": "^2.0.0",
     "ui-router": "^1.0.0-alpha.3"
   }
