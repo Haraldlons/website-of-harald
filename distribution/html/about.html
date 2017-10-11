@@ -1,0 +1,164 @@
+<h1>Who is Harald Lønsethagen?</h1>
+<p>As you might already know, my name is Harald Lønsethagen. I'm 23 years old and live in Norway where I study at <a href="https://www.ntnu.no">NTNU</a>. I'm pationate about computers and have developed a love for programming.</p>
+<p>I love technology and like to test out new gadgets. From a young age I played alot with LEGO and loved building bigger and more complex structures. My family mainly consist of engineers, so it came as no suprise when I decided to study for a masters-degree in electroengineering. My mindset has always been fixed towards solving the complex problems. My mind often drift away when I stirr and try to figure out how to solve the latest challange which introded my mind.</p>
+<p>My latest challange has been connected with my latest large project. I've recently joined a student organization called <b>Revolve NTNU</b>. Revolve is each year building a new electrical race-car competing in the biggest student-engineering-competition in the world. Each year hundrets of teams from around the world gather in Hockenheim Germany and try to show of their newest racing-car, both in dynamic events, where the car is racing at a track, but also in static events where the team has to present their engineering-decisions and defend every little concept they have used. But now for the exciting part. In 2017 Formula Student Germany (FSG) hosted a new competition class called Driverless Vehicle. Here, you take a previously build racing-car by your student organization and make it drive fully autonomously. This introduces a heck load of new challanges since driverless vehicles, and especially autonomously-racing vehicles has not been tested anywhere near as much as 'regular' vehicles. This is, as you might share, an extremly cool challange.</p>
+
+<h4>My free-time activities</h4>
+<ul>
+	<li>Fotball</li>
+	<li>Table tennis</li>
+	<li>Cross-country skiing</li>
+	<li>Hiking</li>
+	<li>Watchin videos about new technology</li>
+	<li>Amatour philosiphy</li>
+</ul>
+
+<h1>How is this webpage build?</h1>
+
+<h3>Techonolgies used</h3>
+<div ng-cloak layout-gt-sm="row" layout="column">
+
+  <div flex-gt-sm="50" flex>
+
+    <md-toolbar layout="row" class="md-hue-3">
+      <div class="md-toolbar-tools">
+        <span>Normal</span>
+      </div>
+    </md-toolbar>
+
+    <md-content>
+      <md-list flex>
+        <md-subheader class="md-no-sticky">3 line item (with hover)</md-subheader>
+        <md-list-item class="md-3-line" ng-repeat="item in todos" ng-click="null">
+          <img ng-src="{{item.face}}?{{$index}}" class="md-avatar" alt="{{item.who}}" />
+          <div class="md-list-item-text" layout="column">
+            <h3>{{ item.who }}</h3>
+            <h4>{{ item.what }}</h4>
+            <p>{{ item.notes }}</p>
+          </div>
+        </md-list-item>
+        <md-divider ></md-divider>
+        <md-subheader class="md-no-sticky">2 line item</md-subheader>
+        <md-list-item class="md-2-line">
+          <img ng-src="{{todos[0].face}}?20" class="md-avatar" alt="{{todos[0].who}}" />
+          <div class="md-list-item-text">
+            <h3>{{ todos[0].who }}</h3>
+            <p>Secondary text</p>
+          </div>
+        </md-list-item>
+        <md-divider ></md-divider>
+        <md-subheader class="md-no-sticky">3 line item, long paragraph (see on mobile)</md-subheader>
+        <md-list-item class="md-3-line md-long-text">
+          <img ng-src="{{todos[0].face}}?25" class="md-avatar" alt="{{todos[0].who}}" />
+          <div class="md-list-item-text">
+            <h3>{{ todos[0].who }}</h3>
+            <p>
+              Secondary line text Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam massa quam.
+              Nulla metus metus, ullamcorper vel, tincidunt sed, euismod in, nibh. Quisque volutpat condimentum
+              velit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
+            </p>
+          </div>
+        </md-list-item>
+        <md-list-item class="md-3-line md-long-text">
+          <img ng-src="{{todos[1].face}}?25" class="md-avatar" alt="{{todos[1].who}}" />
+          <div class="md-list-item-text">
+            <h3>{{ todos[1].who }}</h3>
+            <p>
+              Secondary line text Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam massa quam.
+              Nulla metus metus, ullamcorper vel, tincidunt sed, euismod in, nibh. Quisque volutpat condimentum
+              velit. Class aptent taciti sociosqu ad litra torquent per conubia nostra, per inceptos himenaeos.
+            </p>
+          </div>
+        </md-list-item>
+        <md-divider ></md-divider>
+        <md-subheader class="md-no-sticky">Classes</md-subheader>
+        <md-list-item class="md-2-line" ng-repeat="phone in phones">
+          <md-icon md-svg-icon="{{phone.options.icon}}" ng-if="phone.options.icon" ng-class="{'md-avatar-icon': phone.options.avatarIcon}"></md-icon>
+          <img ng-src="{{phone.options.face}}?25" class="md-avatar" alt="{{phone.options.face}}"
+               ng-if="phone.options.face"/>
+          <div class="md-list-item-text" ng-class="{'md-offset': phone.options.offset }">
+            <h3> {{ phone.number }} </h3>
+            <p> {{ phone.type }} </p>
+          </div>
+          <md-button class="md-secondary md-icon-button" ng-click="doSecondaryAction($event)" ng-if="phone.options.actionIcon" aria-label="call">
+            <md-icon md-svg-icon="{{phone.options.actionIcon}}"></md-icon>
+          </md-button>
+        </md-list-item>
+      </md-list>
+    </md-content>
+  </div>
+
+  <md-divider></md-divider>
+
+  <div flex-gt-sm="50" flex>
+
+    <md-toolbar layout="row" class="md-hue-3">
+      <div class="md-toolbar-tools">
+        <span>Dense</span>
+      </div>
+    </md-toolbar>
+
+    <md-content>
+
+      <md-list class="md-dense" flex>
+        <md-subheader class="md-no-sticky">3 line item (dense)</md-subheader>
+        <md-list-item class="md-3-line" ng-repeat="item in todos">
+          <img ng-src="{{item.face}}?{{$index}}" class="md-avatar" alt="{{item.who}}" />
+          <div class="md-list-item-text" layout="column">
+            <h3>{{ item.who }}</h3>
+            <h4>{{ item.what }}</h4>
+            <p>{{ item.notes }}</p>
+          </div>
+        </md-list-item>
+        <md-divider ></md-divider>
+        <md-subheader class="md-no-sticky">2 line item</md-subheader>
+        <md-list-item class="md-2-line">
+          <img ng-src="{{todos[0].face}}?20" class="md-avatar" alt="{{todos[0].who}}" />
+          <div class="md-list-item-text">
+            <h3>{{ todos[0].who }}</h3>
+            <p>Secondary text</p>
+          </div>
+        </md-list-item>
+        <md-divider ></md-divider>
+        <md-subheader class="md-no-sticky">3 line item, long paragraph (see on mobile)</md-subheader>
+        <md-list-item class="md-3-line md-long-text">
+          <img ng-src="{{todos[0].face}}?25" class="md-avatar" alt="{{todos[0].who}}" />
+          <div class="md-list-item-text">
+            <h3>{{ todos[0].who }}</h3>
+            <p>
+              Secondary line text Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam massa quam.
+              Nulla metus metus, ullamcorper vel, tincidunt sed, euismod in, nibh. Quisque volutpat condimentum
+              velit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
+            </p>
+          </div>
+        </md-list-item>
+        <md-list-item class="md-3-line md-long-text">
+          <img ng-src="{{todos[1].face}}?25" class="md-avatar" alt="{{todos[1].who}}" />
+          <div class="md-list-item-text">
+            <h3>{{ todos[1].who }}</h3>
+            <p>
+              Secondary line text Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam massa quam.
+              Nulla metus metus, ullamcorper vel, tincidunt sed, euismod in, nibh. Quisque volutpat condimentum
+              velit. Class aptent taciti sociosqu ad litra torquent per conubia nostra, per inceptos himenaeos.
+            </p>
+          </div>
+        </md-list-item>
+        <md-divider ></md-divider>
+        <md-subheader class="md-no-sticky">Classes</md-subheader>
+        <md-list-item class="md-2-line" ng-repeat="phone in phones">
+          <md-icon md-svg-icon="{{phone.options.icon}}" ng-if="phone.options.icon" ng-class="{'md-avatar-icon': phone.options.avatarIcon}"></md-icon>
+          <img ng-src="{{phone.options.face}}?25" class="md-avatar" alt="{{phone.options.face}}"
+               ng-if="phone.options.face"/>
+          <div class="md-list-item-text" ng-class="{'md-offset': phone.options.offset }">
+            <h3> {{ phone.number }} </h3>
+            <p> {{ phone.type }} </p>
+          </div>
+          <md-button class="md-secondary md-icon-button" ng-click="doSecondaryAction($event)" ng-if="phone.options.actionIcon" aria-label="call">
+            <md-icon md-svg-icon="{{phone.options.actionIcon}}"></md-icon>
+          </md-button>
+        </md-list-item>
+      </md-list>
+    </md-content>
+  </div>
+
+</div>

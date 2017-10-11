@@ -1,0 +1,76 @@
+@import "./reset/basic-reset";
+
+$grey: #f7f7f7;
+
+$black: #ffffff;
+
+/*body {
+	background: black;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	height: 100vh;
+}
+*/
+
+img {
+	margin-bottom: 3rem;
+}
+
+h1, p {
+	font-family: Helvetica, Arial, sans-serif;
+	font-weight: 300;
+	margin-bottom: 1.5rem;
+}
+/*Setting footer to bottom*/
+
+#testID {
+    /*background: grey;*/
+    margin-top: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    /*height: 100vh;*/
+}
+
+#navbarCSS {
+    /*background: grey;*/
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#body {
+    /*background: grey;*/
+    margin-top: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    /*height: 100vh;*/
+    padding-right: 20%;
+    padding-left: 20%;
+    padding-bottom:60px;
+}
+#container {
+   min-height:100%;
+   position:relative;
+}
+
+#footer {
+    position:absolute;
+    text-align: center;
+    bottom:0;
+    width:100%;
+    height:60px;   /* Height of the footer */
+    background:#6cf;
+}
+
+/*
+#padtop10 {
+    padding-top: 20px;
+}
+*/

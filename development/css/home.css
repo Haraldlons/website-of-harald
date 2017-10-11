@@ -1,0 +1,27 @@
+
+body {
+	/*background: #f7f7f7;*/
+	background: black;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	/*height: 100vh;*/
+}
+
+img {
+	margin-bottom: 3rem;
+}
+
+h1, p {
+	font-family: Helvetica, Arial, sans-serif;
+	font-weight: 300;
+	margin-bottom: 1.5rem;
+}
+
+
+.navbarCtrl md-content .ext-content {
+  padding: 50px;
+  margin: 20px;
+  background-color: #FFF2E0; }
+

@@ -33,6 +33,17 @@
     "less-plugin-autoprefix": "^1.5.1"
   },
   "dependencies": {
-    "static-server": "^2.0.0"
+    "angular": "^1.6.4",
+    "angular-animate": "^1.6.4",
+    "angular-aria": "^1.6.4",
+    "angular-cookies": "^1.6.4",
+    "angular-material": "^1.1.4",
+    "angular-messages": "^1.6.4",
+    "angular-resource": "^1.6.4",
+    "angular-route": "^1.6.4",
+    "angular-sanitize": "^1.6.4",
+    "angular-touch": "^1.6.4",
+    "static-server": "^2.0.0",
+    "ui-router": "^1.0.0-alpha.3"
   }
 }

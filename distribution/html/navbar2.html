@@ -1,0 +1,57 @@
+<nav role="navigation" class="navbar md-whiteframe-1dp" layout="column" layout-align="start center" ng-controller="navbarCtrl">
+	<md-toolbar class="md-accent md-hue-1" layout="column" style="max-width: 1200px;">
+		<md-tabs style="margin-left: 100px; position: absolute; top:25%; width: 100%; max-width: 620px; background-color: transparent;" hide-xs hide-sm ng-show="false">
+			<md-tab ng-repeat="link in vm.links.main" ui-active="active" ui-sref="contact" aria-label="{{vm.name}}">
+				<i class="fa {{link.icon}}" style="margin: 0 0.4rem; width: 1rem; text-align: center;"></i>
+				<span hide-xs hide-sm hide-md>{{vm.name}}</span>
+			</md-tab>
+		</md-tabs>
+		<div class="md-toolbar-tools">
+			<div ui-active="active" ui-sref="home" aria-label="HomeNav" class="navbar-brand" flex="none">
+				<img src="../../assets/images/ETlogos/logo.svg" alt="E&amp;T-dagen">
+			</div>
+			<div class="navbar-nav" layout="row" hide-sm hide-xs>
+				<md-button ng-repeat="link in vm.links.main" ui-active="active" ui-sref="contact" aria-label="{{vm.name}}" class="nav-button-flex">
+					<i class="fa {{link.icon}} button-icon icon-left"></i>
+					<span>{{vm.name}}</span>
+				</md-button>
+			</div>
+			<div flex></div>
+			<div ng-show="false">
+				<input type="text">
+			</div>
+			<md-button ng-if="vm.isCompany" class="md-fab md-mini" ui-sref="search" md-ink-ripple="#a03033" style="color: #a03033;">
+				<md-tooltip md-direction="left">Søk</md-tooltip>
+				<i class="fa fa-search"></i>
+			</md-button>
+
+			<!-- Shows only if not logged in -->
+			<md-button class="md-primary md-hue-2 md-raised nav-button-flex" ng-if="!vm.loggedIn" ui-sref="login" aria-label="logg in">
+				Logg inn
+			</md-button>
+
+			<!-- Shows if logged in -->
+			<md-menu md-position-mode="target-right target" ng-if="vm.loggedIn">
+				<md-button class="md-raised md-primary md-hue-2 nav-button truncate" ng-click="$mdOpenMenu($event)" aria-label="UserDropdown">
+					<span style="max-width: 100px;">{{vm.username}}<i class="fa fa-chevron-down button-icon icon-right"/></span>
+				</md-button>
+				<md-menu-content>
+					<md-button id="profileButton" ng-click="vm.goToProfile()"  aria-label="user" class="nav-button text-align-left md-primary md-hue-2">
+						<i class="fa fa-user button-icon icon-left"></i> Profil
+					</md-button>
+					<md-button ui-sref="settings" aria-label="settings" class="nav-button text-align-left md-primary md-hue-2">
+						<i class="fa fa-cog button-icon icon-left"></i> Instillinger
+					</md-button>
+					<md-button ng-click="vm.logOut()" aria-label="logg ut" class="nav-button text-align-left md-primary md-hue-2">
+						<i class="fa fa-sign-out button-icon icon-left"></i> Logg ut
+					</md-button>
+				</md-menu-content>
+			</md-menu>
+		</div>
+		<md-tabs class="md-hue-1 override-tab-color" md-stretch-tabs="always" hide-gt-sm>
+			<md-tab ng-repeat="link in vm.links.main" ui-active="active" ui-sref="contact" aria-label="{{vm.name}}">
+				<i class="fa {{link.icon}} button-icon icon-both" style="color: #a03033;"></i>
+			</md-tab>
+		</md-tabs>
+	</md-toolbar>
+</nav>
