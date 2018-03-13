@@ -21,6 +21,8 @@ gulp watch
 ## Possible hickups
 - Other applications are running on the same port
 - You have not installed gulp correctly
+- gulp watch  -> throw new Error(errors.unsupportedEnvironment());
+=> then delete node_modules and run 'npm install' again
 
 # Usefull tips
 ## When adding a new page and controller
