@@ -1,49 +1,47 @@
 <!doctype html>
-
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>The HTML5 Herald</title>
-  <link rel="stylesheet" href="styles_dependencies.css" />
-  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
-  <link rel="stylesheet" href="/styles.css" />
-
+	<meta charset="utf-8">
+	<title>The HTML5 Herald</title>
+	<link rel="stylesheet" href="styles_dependencies.css" />
+	<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+	<link rel="stylesheet" href="/styles.css" />
 </head>	
 
 <body ng-app="mainApp" style="flex">
-<!-- <div ng-cloak> -->
-<div id="container">
-	<navbar></navbar>
-    <div ng-cloak id="body">
-		<ui-view></ui-view>
-    </div>
-	<footer id="footer"><h4 style="padding-top: 1rem">Footer</h4></footer>
-</div>
-	
+	<!-- <div ng-cloak> -->
+	<div id="container">
+		<navbar></navbar>
+	    <div ng-cloak id="body">
+			<ui-view></ui-view>
+	    </div>
+		<footer id="footer"><h4 style="padding-top: 1rem">Footer</h4></footer>
+	</div>
+
     <!-- <p style="margin-top: 30px; margin-bottom: 2px; text-align: center;">This is above ui-view</p> -->
     <!-- <hr> -->
- 
+
 	<!-- <hr> -->
 	<!-- <p style="margin-top: 2px; margin-bottom: 30px; text-align: center;">This is under ui-view</p> -->
-	
-<!-- </div> -->
 
-<!-- The footer -->
+	<!-- </div> -->
+
+	<!-- The footer -->
 
 
 	<!-- Angular UI-route -->
 
-	 <!-- Angular JS -->
-  <!-- <script src="../node_modules/angular/angular.js"></script> -->
-  <!-- <script src="/node_modules/angular-animate/angular-animate.js"></script> -->
-  <!-- <script src="node_modules/angular-aria/angular-aria.js"></script> -->
-  <!-- <script src="node_modules/angular-material/angular-material.js"></script> -->
-  <!-- <script src="node_modules/angular-ui-router/release/angular-ui-router.js"></script> -->
+	<!-- Angular JS -->
+		<!-- <script src="../node_modules/angular/angular.js"></script> -->
+		<!-- <script src="/node_modules/angular-animate/angular-animate.js"></script> -->
+		<!-- <script src="node_modules/angular-aria/angular-aria.js"></script> -->
+		<!-- <script src="node_modules/angular-material/angular-material.js"></script> -->
+		<!-- <script src="node_modules/angular-ui-router/release/angular-ui-router.js"></script> -->
 
-		<!-- Important to include Angular.js before app.js -->
-<!-- ======================================================== -->
-<!-- 					EXTERNAL DEPENDENCIES 				  -->
-<!-- ======================================================== -->
+	<!-- Important to include Angular.js before app.js -->
+	<!-- ======================================================== -->
+	<!-- 					EXTERNAL DEPENDENCIES 				  -->
+	<!-- ======================================================== -->
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.10/handlebars.js"></script>
 	<script src="http://localhost:35729/livereload.js"></script>
@@ -69,20 +67,3 @@
 
 </body>
 </html>
-
-<!-- All code below is archieved
-<div id="testID">
-
-		<section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
-	      <md-button>{{title1}}</md-button>
-	      <md-button md-no-ink class="md-primary">Primary (md-noink)</md-button>
-	      <md-button ng-disabled="true" class="md-primary">Disabled</md-button>
-	      <md-button class="md-warn">{{title4}}</md-button>
-	      <div class="label">Flat</div>
-	    </section>
-
-	    <!-- <h1>Now ui-view is coming below</h1> -->
-	<!-- </div> -->
-
-
- <!-- -->
