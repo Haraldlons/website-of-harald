@@ -1,7 +1,6 @@
-# Start of homepage for Harald Lønsethagen
-
-## I started out a long time ago building the fundation for my personal homepage. Thise ended up taking alot of time just getting the fundation build. Now I'm on vocation on Crete and have some hours to try to get this working.
-
+# Homepage for Harald Lønsethagen
+[www.haraldoo.no](www.haraldoo.no)
+My personal homepage suppose to showcase various projects I have been a part of. Still alot of work to be done, but the bare fundamental have been implemented. My vision is to incrementally update the page so that in the far future my homepage will be cool with many interesting projects. 
 
 # Prerequisite 
 - [npm](https://www.npmjs.com/get-npm) version: >=6.4.1  
@@ -33,7 +32,7 @@ gulp watch
 Development code is in 'development' folder, while generated code by gulp is stored in distribution. When running 'gulp default' files are copied from the development folder into distribution folder. Javascript files are concatenated, and css-file the same. Dependencies in node_modules are also concatonated into a single file, which is named 'script_dependencies'. Therefor the final hosted folder 'distribution' should be a fast. 
 
 ### gulp clean
-When running gulp clean, mosts file in the distr
+When running gulp clean, mosts file in the distribution folder is removed.
 
 # Usefull tips
 ## When adding a new page and controller
