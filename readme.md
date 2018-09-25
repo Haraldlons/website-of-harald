@@ -11,3 +11,15 @@
 4. Link the new controller in the app.js. Add a ".state('<controllerName>', {..." section
 5. Link the new controller in the scripts.json. Commas can easily f**k up stuff
 6. Start "gulp watch" again
+
+# Prerequisite 
+- [www.vg.no](npm) version: >=6.4.1  
+- 
+# Getting started
+1. 
+```bash
+git clone https://github.com/Haraldlons/simple-firebase-login-chat-project.git
+cd simple-firebase-login-chat-project
+sudo npm install
+```
+2. 

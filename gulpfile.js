@@ -37,6 +37,7 @@ var CSS_PATH = "development/css/**/*.css";
 var TEMPLATES_PATH = "templates/**/*.hbs";
 var IMAGES_PATH = "development/images/**/*.{png,jpeg,jpg,svg,gif}";
 var HTML_PATH = "development/html/**/*html"
+var NODE_MODULES_PATH = "node_modules/**/*"
 
 
 // All scripts and SCSS
@@ -227,6 +228,7 @@ gulp.task("clean", function(){
 			"distribution/*.js",
 			"distribution/*.css",
 			"distribution/*.html",
+			"distribution/node_modules",
 			// "dist/templates.js"
 			// DIST_PATH
 		]);
@@ -254,7 +256,6 @@ gulp.task("watch", ['default'], function(){
 	gulp.watch("development/*.html", ["makeIndex"]); /*For SCSS*/
 	// gulp.watch("development/less/**/*.less", ["styles"]); /*For LESS*/
 	gulp.watch(TEMPLATES_PATH, ["templates"]);
-
 });
 
 gulp.task("makeIndex", function(){
@@ -263,3 +264,10 @@ gulp.task("makeIndex", function(){
 		.pipe(gulp.dest(DIST_PATH))
 		.pipe(livereload());
 });
+
+// gulp.task("moveNodeModulesToDistribution", function(){
+// 	console.log("trying to copy node_modules into distribution folder");
+// 	return gulp.src(NODE_MODULES_PATH)
+// 		.pipe(gulp.dest(DIST_PATH + "/node_modules"))
+// 		.pipe(livereload());
+// });
