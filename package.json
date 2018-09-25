@@ -28,7 +28,7 @@
     "gulp-wrap": "^0.13.0",
     "gulp-zip": "^4.0.0",
     "handlebars": "^4.0.10",
-    "imagemin-jpeg-recompress": "^5.0.0",
+    "imagemin-jpeg-recompress": "^5.1.0",
     "imagemin-pngquant": "^5.0.0",
     "less-plugin-autoprefix": "^1.5.1"
   },

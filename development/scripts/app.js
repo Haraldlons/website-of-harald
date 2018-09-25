@@ -17,13 +17,15 @@ var app = angular.module('mainApp', [
 		'ngResource',
 		'ngRoute',
 		'ngSanitize',
-		// 'ngTouch', //not compatible with angular-material
+		// 'ngTouch', not compatible with angular-material
 		'ui.router',
 		'ngMaterial',
 		// 'angularFileUpload',
 		// 'textAngular',
 		// 'firebase'
 	])
+
+// test
 	// .config(configure)
 	
 
