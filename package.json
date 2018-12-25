@@ -43,6 +43,7 @@
     "angular-route": "^1.7.5",
     "angular-sanitize": "^1.7.5",
     "angular-touch": "^1.7.5",
+    "hoek": "^6.1.2",
     "lodash": "^4.17.11",
     "minimatch": "^3.0.4",
     "static-server": "^2.2.1",
