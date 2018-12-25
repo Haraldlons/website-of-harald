@@ -43,8 +43,8 @@
     "angular-route": "^1.7.5",
     "angular-sanitize": "^1.7.5",
     "angular-touch": "^1.7.5",
+    "lodash": "^4.17.11",
     "static-server": "^2.2.1",
-    "ui-router": "^1.0.0-alpha.3",
-    "lodash": "^4.17.4"
+    "ui-router": "^1.0.0-alpha.3"
   }
 }
