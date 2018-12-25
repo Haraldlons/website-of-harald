@@ -44,6 +44,7 @@
     "angular-sanitize": "^1.7.5",
     "angular-touch": "^1.7.5",
     "lodash": "^4.17.11",
+    "minimatch": "^3.0.4",
     "static-server": "^2.2.1",
     "ui-router": "^1.0.0-alpha.3"
   }
